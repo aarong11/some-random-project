@@ -3,7 +3,7 @@ const fs = require('fs');
 const app = express();
 
 const port = 3000;
-const RANDOM_CHANCE = 2; // Random chance is 1 / RANDOM_CHANCE (e.g. 10000 = a 1 in 10000 chance if being a real one)
+const RANDOM_CHANCE = 10000; // Random chance is 1 / RANDOM_CHANCE (e.g. 10000 = a 1 in 10000 chance if being a real one)
 const KEY_SUBSTRING_LENGTH = 5;
 const real_key_file = "keys.txt"
 
@@ -51,6 +51,8 @@ app.get('/get_key', (req, res) => {
     else {
         result = getRandomRealKey();
     }
+
+    res.header("Access-Control-Allow-Origin", "*");
 
     res.send(result);
 });

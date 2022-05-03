@@ -1,0 +1,68 @@
+
+<html lang="en">
+	<head>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+		const endpoint = "http://localhost:3000";
+
+		function generateKey() {
+			$.get( `${endpoint}/get_key`, function( data ) {
+				$('#outputKey').val(data);
+				copyToClipboard(data);
+			});
+		}
+
+		function copyToClipboard(value) {
+			var aux = document.createElement("input");
+			aux.setAttribute("value", value);
+			document.body.appendChild(aux);
+			aux.select();
+			document.execCommand("copy");
+			document.body.removeChild(aux);
+		}
+
+    </script>
+		<meta charset=utf-8>
+		<title>THE MAGPIE COLLECTION</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<style>
+			input[name=key] {
+				pointer-events: none;
+			}
+		</style>
+    <div>
+      <section>
+        <p>TSPUD v1.18 (CrAcKeD bY AaRoNg11)</p>
+        <p class="line">- - - - - - - - - - - - - - - - - - - - - - - -</p>
+
+		<img src="tspud.png"/>
+		<p>
+			<label for="version">SeLeCt YoUr VeRsIoN:</label>
+			<select name="version" id="version">
+				<option value="win">WIN</option>
+				<option value="mac">MAC</option>
+				<option value="linux">LINUX</option>
+			  </select>
+			  <button onclick="generateKey()" id="generate">
+				Generate
+			  </button>
+		</p>
+
+		<input type="text" id="outputKey">
+
+		</section>
+
+        <p>From</p>
+        <a href="https://crowscrowscrows.com">SUBSCRIBE TO OUR EMAILS</a></p>
+        <p>Catch you in the dArK web . . . - webmaster</p>
+      </section>
+    </div>
+	</body>
+</html>
+
+<!-- assets/images/data.png @ADMIN DO NOT LEAVE THIS HERE -->
